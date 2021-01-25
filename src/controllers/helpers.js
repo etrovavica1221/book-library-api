@@ -24,7 +24,7 @@ const removePassword = (obj) => {
 const getAllItems = (res, model) => {
     const Model = getModel(model);
 
-    return Model.findAll().then((items) => {
+    return Model.findAll({ include: Book }).then((items) => {
         const itemsWithoutPassword = items.map((item) => removePassword(item.dataValues));
         res.status(200).json(itemsWithoutPassword);
     });
@@ -67,7 +67,7 @@ const updateItem = (res, model, item, id) => {
 const getItemById = (res, model, id) => {
     const Model = getModel(model);
 
-    return Model.findByPk(id).then((item) => {
+    return Model.findByPk(id, { includes: Genre }).then((item) => {
         if (!item) {
             res.status(404).json(get404Error(model));
         } else {
