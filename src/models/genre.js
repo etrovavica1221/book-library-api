@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
             } ,
         },
-    },
-    return sequelize.define('Genre', schema);
-}
+    };
+
+  return sequelize.define('Genre', schema);
+};

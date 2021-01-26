@@ -1,3 +1,4 @@
+
 const Sequelize = require('sequelize');
 const ReaderModel = require('./reader');
 const BookModel = require('./book');
@@ -15,7 +16,7 @@ const setupDatabase = () => {
 
   const Reader = ReaderModel(sequelize, Sequelize);
   const Book = BookModel(sequelize, Sequelize);
-  const Genre = GenreModel(sequelize,Sequelize);
+  const Genre = GenreModel(sequelize, Sequelize);
 
   Genre.hasMany(Book);
   Book.belongsTo(Genre);

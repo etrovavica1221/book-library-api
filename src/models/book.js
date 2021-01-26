@@ -1,12 +1,13 @@
+
 module.exports = (sequelize, DataTypes) => {
   const schema = {
     title: {
-      type: DataTypes.STRING,
       allowNull: false,
-      validate: {
+      type: DataTypes.STRING,
+      validation: {
         notNull: {
           args: [true],
-          msg: 'Title cannot be empty!',
+          msg: 'We need a book title',
         },
         notEmpty: {
           args: [true],
@@ -17,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     author: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
+      validation: {
         notNull: {
           args: [true],
-          msg: 'Author cannot be empty!',
+          msg: 'We need a book author',
         },
         notEmpty: {
           args: [true],
